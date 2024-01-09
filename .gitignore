@@ -161,3 +161,4 @@ cython_debug/
 
 yolov5/data/*
 yolov5/yolov5s.pt
+yolov5/runs/
