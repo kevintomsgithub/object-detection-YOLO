@@ -1,0 +1,26 @@
+FROM ubuntu:18.04
+
+RUN apt update && apt -y dist-upgrade
+RUN apt -y install --no-install-recommends \
+	libxml2-dev \
+	libxslt-dev \
+	pyqt5-dev-tools \
+	python3-pip \
+	python3-dev \
+	python3-pyqt5 \
+	build-essential
+
+WORKDIR /labelImg
+
+RUN pip3 install --upgrade pip
+
+RUN rm -rf /var/lib/apt/lists/*
+
+RUN pip3 install setuptools lxml 
+RUN pip3 install resources requests staty
+
+COPY labelImg /labelImg
+
+RUN make qt5py3
+
+CMD ["python3", "/labelImg/labelImg.py"]
