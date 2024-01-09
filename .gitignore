@@ -160,3 +160,4 @@ cython_debug/
 #.idea/
 
 yolov5/data/*
+yolov5/yolov5s.pt
